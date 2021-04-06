@@ -39,13 +39,14 @@ public class ValuesPage {
             Assert.assertTrue("Right Side Values are not present on the page", val.isDisplayed());
 
         }
+        Assert.assertTrue("total count is not present on the page", totalsum.isDisplayed());
     }
 
     public List<String> addValuesOnPage(){
         List<String> values = new ArrayList<>();
         for(WebElement val : driver.findElements(By.xpath("//input[contains(@id, 'text_val')]"))){
 
-            values.add(val.getText());
+            values.add(val.getText().trim());
 
         }
         return values;

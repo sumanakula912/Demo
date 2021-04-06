@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/features"},
          glue = {"stepdefinitions"},
-        plugin = {"pretty", "html:target/cucumber-html-reports"},
+        plugin = {"pretty", "html:target/cucumber-parallel/cucumber-html-reports.html"},
         tags = "@Test123",
         monochrome = true)
 
