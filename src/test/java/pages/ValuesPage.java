@@ -55,16 +55,16 @@ public class ValuesPage {
 
     public void verifyvaluesGreaterThan0(int expval){
         for(String val : addValuesOnPage()){
-            Assert.assertTrue("value is not greater than 0", Integer.parseInt(val)>expval);
+            Assert.assertTrue("value is not greater than 0", Double.parseDouble(val)>expval);
         }
     }
 
     public void verifyTotalbalance(){
-        int sum = 0;
+        double sum = 0;
         for(String val : addValuesOnPage()){
             sum = sum + Integer.parseInt(val);
         }
-        Assert.assertTrue("total balance is not matching", sum==Integer.parseInt(totalsum.getText()));
+        Assert.assertTrue("total balance is not matching", sum==Double.parseDouble(totalsum.getText()));
     }
 
     public void validateCurrency(){
