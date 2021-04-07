@@ -46,7 +46,7 @@ public class ValuesPage {
         List<String> values = new ArrayList<>();
         for(WebElement val : driver.findElements(By.xpath("//input[contains(@id, 'text_val')]"))){
 
-            values.add(val.getText().trim());
+            values.add(val.getText().replaceAll("[$,]", "").trim());
 
         }
         return values;
@@ -63,9 +63,9 @@ public class ValuesPage {
     public void verifyTotalbalance(){
         double sum = 0;
         for(String val : addValuesOnPage()){
-            sum = sum + Integer.parseInt(val);
+            sum = sum + Double.parseDouble(val);
         }
-        Assert.assertTrue("total balance is not matching", sum==Double.parseDouble(totalsum.getText()));
+        Assert.assertTrue("total balance is not matching", sum==Double.parseDouble(totalsum.getText().replaceAll("[$,]", "").trim()));
     }
 
     public void validateCurrency(){
